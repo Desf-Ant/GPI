@@ -2,7 +2,7 @@ public class Rectangle {
 
   private static double LONGUEUR_PAR_DEFAUT = 5;
   private static double LARGEUR_PAR_DEFAUT = 7;
-  private static Coordonnees POSITION_PAR_DEFAUT = new Coordonnees(3,3)
+  private static Coordonnees POSITION_PAR_DEFAUT = new Coordonnees(3,3);
   private double largeur;
   private double longueur;
   private Coordonnees position;
@@ -55,6 +55,14 @@ public class Rectangle {
 
   public void deplacerDe(double deltaX, double deltaY){
     this.position.deplacerDe(deltaX,deltaY);
+  }
+
+  public String toString(){
+    String s = new String();
+    s += "Rectangle coords: "+this.getPosition();
+    s += "/ largeur: "+this.getLargeur();
+    s += "/ longueur: "+this.getLongueur();
+    return s;
   }
 
 }
