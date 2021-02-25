@@ -1,12 +1,14 @@
-package GPI.exercice.pile;
+package GPI.exercices.pile;
 
 import GPI.projet.geom.Rectangle;
 import java.util.ArrayList;
 
 public class PileDeRectangle {
 
+  private ArrayList<Rectangle> lesRectangles;
+
   public PileDeRectangle() {
-    private ArrayList<Rectangle> lesRectangles;
+    this.lesRectangles = new ArrayList<>();
   }
 
   public boolean estVide() {
