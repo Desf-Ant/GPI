@@ -1,3 +1,7 @@
+package GPI.exercices.utilisateur;
+
+import GPI.exercices.utilisateur.Personne;
+
 public class PersonneEssai {
   public static void main(String[] args){
 

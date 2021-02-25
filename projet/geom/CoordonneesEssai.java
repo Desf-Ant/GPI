@@ -1,3 +1,7 @@
+package GPI.projet.geom;
+
+import GPI.projet.geom.Coordonnees;
+
 public class CoordonneesEssai {
   public static void main (String[] args) {
     Coordonnees p1 = new Coordonnees();

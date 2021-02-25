@@ -1,3 +1,8 @@
+package GPI.projet.geom;
+
+import GPI.projet.geom.Rectangle;
+import GPI.projet.geom.Coordonnees;
+
 public class RectangleEssai {
   public static void main (String[] args){
     Rectangle rect1 = new Rectangle();

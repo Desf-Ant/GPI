@@ -1,3 +1,5 @@
+package GPI.projet.geom;
+
 public class Coordonnees {
   private double x;
   private double y;
@@ -53,5 +55,5 @@ public class Coordonnees {
 
     return 360-Math.atan(yR/xR)*180/Math.PI;
   }
-  
+
 }

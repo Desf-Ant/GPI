@@ -1,3 +1,7 @@
+package GPI.projet.geom;
+
+import GPI.projet.geom.Coordonnees;
+
 public class Rectangle {
 
   private static double LONGUEUR_PAR_DEFAUT = 5;

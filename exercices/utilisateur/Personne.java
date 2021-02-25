@@ -1,3 +1,5 @@
+package GPI.exercices.utilisateur;
+
 public class Personne {
   // constante de la classe
   static final String NATIONALITE_PAR_DEFAUT = "francais";
