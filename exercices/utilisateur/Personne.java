@@ -62,7 +62,10 @@ public class Personne {
 
   String user_id(){
     if (this.getAnneeDeNaissance() != 0)
-      return this.getNom().substring(0,5)+this.getPrenom().substring(0,3)+String.valueOf(this.getAnneeDeNaissance()).substring(2);
+      if (this.getNom().length() > 5)
+        return this.getNom().substring(0,5)+this.getPrenom().substring(0,3)+String.valueOf(this.getAnneeDeNaissance()).substring(2);
+      else
+      return this.getNom()+this.getPrenom().substring(0,3)+String.valueOf(this.getAnneeDeNaissance()).substring(2);
     else
       return "XX";
   }

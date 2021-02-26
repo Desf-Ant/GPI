@@ -28,7 +28,7 @@ public class Annuaire {
   public Personne supprimer(String nom){
     for (int i=0; i<this.lesPersonnes.size(); i++){
       if (this.lesPersonnes.get(i).getNom() == nom){
-        System.out.print(this.lesPersonnes.get(i).identite());
+        System.out.println(this.lesPersonnes.get(i).identite());
         Personne p = this.lesPersonnes.get(i);
         this.lesPersonnes.remove(i);
         return p;
