@@ -2,7 +2,7 @@ package GPI.exercices.complexe.cartesien;
 
 import GPI.exercices.complexe.cartesien.Complexe;
 
-public class ComplexeEssai{
+public class ComplexeCartesienEssai{
   static Complexe c1;
   static Complexe c2;
   static Complexe c3;
