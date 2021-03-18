@@ -7,9 +7,6 @@ public class ComplexeEssai{
   //static GPI.exercices.complexe.cartesien.Complexe c1;
   //static GPI.exercices.complexe.polaire.Complexe c2;
   public static void main (String args[]){
-    c1 = cartesien.Complexe();
-    c2 = polaire.Complexe();
-    c1.afficheInfo();
-    c2.afficheInfo();
+	  System.out.println("Normalement ca aurait du etre l'utilisation des deux type de Complexe");
   }
 }
