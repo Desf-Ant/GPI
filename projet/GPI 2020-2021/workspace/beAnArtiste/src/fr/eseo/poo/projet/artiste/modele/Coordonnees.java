@@ -47,6 +47,11 @@ public class Coordonnees {
     this.x += deltaX ;
     this.y += deltaY ;
   }
+  
+  public void deplacer(Coordonnees c) {
+	  this.x = c.getX();
+	  this.y = c.getY();
+  }
 
   public double distanceVers (Coordonnees coords){
     double x2 = coords.getX();

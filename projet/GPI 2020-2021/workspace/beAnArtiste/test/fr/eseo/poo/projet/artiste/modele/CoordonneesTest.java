@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class CoordonneesTest {
 
