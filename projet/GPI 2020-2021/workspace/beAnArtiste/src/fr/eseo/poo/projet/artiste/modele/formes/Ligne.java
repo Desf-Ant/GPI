@@ -67,8 +67,8 @@ public class Ligne {
 	}
 	
 	public void setC1(Coordonnees c) {
-		double deltaX = this.getLargeur() - c.getX();
-		double deltaY = this.getHauteur() - c.getY();
+		double deltaX = this.getLargeur() - c.getAbscisse();
+		double deltaY = this.getHauteur() - c.getOrdonnee();
 		this.position = c;
 		this.largeur += deltaX;
 		this.hauteur += deltaY;
@@ -76,15 +76,15 @@ public class Ligne {
 	
 	public void setC2(Coordonnees c) {
 		Coordonnees c2 = this.getC2();
-		double deltaX = c.getX() - c2.getX();
-		double deltaY = c.getY() - c2.getY();
+		double deltaX = c.getAbscisse() - c2.getAbscisse();
+		double deltaY = c.getOrdonnee() - c2.getOrdonnee();
 		this.largeur += deltaX;
 		this.hauteur += deltaY;
 	}
 	
 	public double getCadreMinX() {
-		double a = this.getC1().getX();
-		double b = this.getC2().getX();
+		double a = this.getC1().getAbscisse();
+		double b = this.getC2().getAbscisse();
 		
 		if (a<b)
 			return a;
@@ -93,8 +93,8 @@ public class Ligne {
 	}
 	
 	public double getCadreMinY() {
-		double a = this.getC1().getY();
-		double b = this.getC2().getY();
+		double a = this.getC1().getOrdonnee();
+		double b = this.getC2().getOrdonnee();
 		
 		if (a<b)
 			return a;
@@ -103,8 +103,8 @@ public class Ligne {
 	}
 	
 	public double getCadreMaxX() {
-		double a = this.getC1().getX();
-		double b = this.getC2().getX();
+		double a = this.getC1().getAbscisse();
+		double b = this.getC2().getAbscisse();
 		
 		if (a>b)
 			return a;
@@ -113,8 +113,8 @@ public class Ligne {
 	}
 	
 	public double getCadreMaxY() {
-		double a = this.getC1().getY();
-		double b = this.getC2().getY();
+		double a = this.getC1().getOrdonnee();
+		double b = this.getC2().getOrdonnee();
 		
 		if (a>b)
 			return a;
@@ -137,7 +137,7 @@ public class Ligne {
 	}
 	
 	public double perimetre() {
-		return Math.sqrt(Math.pow(this.getC1().getX()-this.getC2().getX(), 2)+Math.pow(this.getC1().getY()-this.getC2().getY(), 2));
+		return Math.sqrt(Math.pow(this.getC1().getAbscisse()-this.getC2().getAbscisse(), 2)+Math.pow(this.getC1().getOrdonnee()-this.getC2().getOrdonnee(), 2));
 	}
 	
 	

@@ -3,8 +3,8 @@ package fr.eseo.poo.projet.artiste.modele;
 public class Coordonnees {
   private double x;
   private double y;
-  private static double	ABSCISSE_PAR_DEFAUT = 0;
-  private static double ORDONNEE_PAR_DEFAUT = 0;
+  public static final double	ABSCISSE_PAR_DEFAUT = 0;
+  public static final double ORDONNEE_PAR_DEFAUT = 0;
 
   public Coordonnees (double x,double y){
     this.x = x;
@@ -16,24 +16,27 @@ public class Coordonnees {
   }
   
   public Coordonnees(Coordonnees c) {
-	  this.x = c.getX();
-	  this.y = c.getY();
+	  this.x = c.getAbscisse();
+	  this.y = c.getOrdonnee();
   }
 
   // Guetteurs et Mutateurs
-  public double getX (){
+  public double getAbscisse (){
     return this.x;
   }
+  
 
-  public double getY(){
+  public double getOrdonnee(){
     return this.y;
   }
+  
 
-  public void setX(double x){
+  public void setAbscisse(double x){
     this.x = x;
   }
+  
 
-  public void setY(double y){
+  public void setOrdonnee(double y){
     this.y = y;
   }
 
@@ -48,22 +51,27 @@ public class Coordonnees {
     this.y += deltaY ;
   }
   
+  public void deplacerVers(double x,double y) {
+	  this.x = x;
+	  this.y = y;
+  }
+  
   public void deplacer(Coordonnees c) {
-	  this.x = c.getX();
-	  this.y = c.getY();
+	  this.x = c.getAbscisse();
+	  this.y = c.getOrdonnee();
   }
 
   public double distanceVers (Coordonnees coords){
-    double x2 = coords.getX();
-    double y2 = coords.getY();
+    double x2 = coords.getAbscisse();
+    double y2 = coords.getOrdonnee();
     return Math.sqrt(Math.pow(this.x-x2,2)+Math.pow(this.y-y2,2));
   }
 
   public double angleVers(Coordonnees coords){
-    double x2 = coords.getX();
-    double y2 = coords.getY();
-    double xR = this.getX() - x2;
-    double yR = this.getY() - y2;
+    double x2 = coords.getAbscisse();
+    double y2 = coords.getOrdonnee();
+    double xR = this.getAbscisse() - x2;
+    double yR = this.getOrdonnee() - y2;
 
     return 360-Math.atan(yR/xR)*180/Math.PI;
   }

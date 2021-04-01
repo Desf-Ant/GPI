@@ -1,7 +1,7 @@
-package fr.eseo.poo.projet.artiste.modele;
+package fr.eseo.poo.projet.artiste.modele.ModeleTests;
 
 import static org.junit.Assert.*;
-
+import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 import org.junit.Test;
 
 
