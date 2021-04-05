@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
-public class TestLigne {
+public class LigneTest {
 
 	@Test
 	public void testNormalConstructeur() {
@@ -64,6 +64,24 @@ public class TestLigne {
 		
 		assertEquals(Ligne.LARGEUR_PAR_DEFAUT,l.getLargeur(),0.001);
 		assertEquals(Ligne.HAUTEUR_PAR_DEFAUT,l.getHauteur(),0.001);
+	}
+	
+	@Test
+	public void testSetLargeur() {
+		Ligne l = new Ligne();
+		
+		l.setLargeur(30);
+		assertEquals(l.getLargeur(),30,0.001);
+		assertEquals(l.getC2().getAbscisse(),30,0.001);	
+	}
+	
+	@Test
+	public void testSetHauteur() {
+		Ligne l = new Ligne();
+		
+		l.setHauteur(30);
+		assertEquals(l.getHauteur(),30,0.001);
+		assertEquals(l.getC2().getOrdonnee(),30,0.001);
 	}
 	
 	@Test
@@ -144,6 +162,27 @@ public class TestLigne {
 		assertEquals(0,l.getC2().getOrdonnee(),0.001);
 		assertEquals(-1,l.getLargeur(),0.001);
 		assertEquals(-1,l.getHauteur(),0.001);
+		
+		l.setC2(new Coordonnees(-1,-1));
+		assertEquals(-1,l.getC2().getAbscisse(),0.001);
+		assertEquals(-1,l.getC2().getOrdonnee(),0.001);
+		assertEquals(-2,l.getLargeur(),0.001);
+		assertEquals(-2,l.getHauteur(),0.001);
+		assertEquals(1,l.getC1().getAbscisse(),0.001);
+		assertEquals(1,l.getC1().getOrdonnee(),0.001);
+	}
+	
+	@Test 
+	public void testSetC2_2() {
+		Ligne l = new Ligne(new Coordonnees(-1,-1),1,1);
+		
+		l.setC2(new Coordonnees(-2,-2));
+		assertEquals(-2,l.getC2().getAbscisse(),0.001);
+		assertEquals(-2,l.getC2().getOrdonnee(),0.001);
+		assertEquals(-1,l.getLargeur(),0.001);
+		assertEquals(-1,l.getHauteur(),0.001);
+		assertEquals(-1,l.getC1().getAbscisse(),0.001);
+		assertEquals(-1,l.getC1().getOrdonnee(),0.001);
 	}
 	
 	@Test
@@ -244,6 +283,57 @@ public class TestLigne {
 		
 		Ligne l3 = new Ligne(0,0);
 		assertEquals(0,l3.perimetre(),0.001);
+	}
+	
+	@Test 
+	public void testToString() {
+		Ligne l = new Ligne();
+		String s = new String();
+		
+		s = "[Ligne] c1 : ";
+		s += "(0,0 , 0,0)";
+		s += " c2 : ";
+		s += "(20,0 , 20,0)";
+		s += " longueur : ";
+		s += "28,28";
+		s += " angle : ";
+		s += "45,0";
+		s += "°";
+		
+		assertEquals(s,l.toString());
+		
+	}
+	
+	@Test
+	public void testToString2() {
+		Ligne l = new Ligne(-20,-20);
+		String s = new String();
+		
+		s = "[Ligne] c1 : ";
+		s += "(0,0 , 0,0)";
+		s += " c2 : ";
+		s += "(-20,0 , -20,0)";
+		s += " longueur : ";
+		s += "28,28";
+		s += " angle : ";
+		s += "225,0";
+		s += "°";
+		
+		assertEquals(s,l.toString());
+	}
+	
+	@Test 
+	public void testContient() {
+		Ligne l = new Ligne();
+		Coordonnees c = new Coordonnees(10,10);
+		assertEquals(true,l.contient(c));
+	}
+	
+	@Test
+	public void testContient2() {
+		Ligne l = new Ligne();
+		Coordonnees c = new Coordonnees(10,20);
+		assertEquals(false,l.contient(c));
 	}
 
 }

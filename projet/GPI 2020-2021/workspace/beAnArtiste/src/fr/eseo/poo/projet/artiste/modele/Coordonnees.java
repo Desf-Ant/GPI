@@ -1,5 +1,8 @@
 package fr.eseo.poo.projet.artiste.modele;
 
+import java.text.DecimalFormat;
+import java.util.Locale;
+
 public class Coordonnees {
   private double x;
   private double y;
@@ -43,7 +46,16 @@ public class Coordonnees {
 
   // Méthodes
   public String toString(){
-    return "x: "+this.x+"; y: "+this.y;
+	DecimalFormat df = new DecimalFormat("0.0#");
+	String xx = df.format(this.x);
+	String yy = df.format(this.y);
+	Locale langue = Locale.getDefault();
+	
+	if (langue.getLanguage().equals(new Locale("fr").getLanguage())) {
+		xx = xx.replace('.',',');
+		yy = yy.replace('.',',');
+	}
+    return "("+xx+" , "+yy+")";
   }
 
   public void deplacerDe(double deltaX, double deltaY){
@@ -70,10 +82,10 @@ public class Coordonnees {
   public double angleVers(Coordonnees coords){
     double x2 = coords.getAbscisse();
     double y2 = coords.getOrdonnee();
-    double xR = this.getAbscisse() - x2;
-    double yR = this.getOrdonnee() - y2;
-
-    return 360-Math.atan(yR/xR)*180/Math.PI;
+    double xR = x2-this.getAbscisse();
+    double yR = y2-this.getOrdonnee();
+    
+    return (yR/Math.abs(yR)) * Math.acos(xR/Math.sqrt(Math.pow(xR, 2)+Math.pow(yR, 2)));   
   }
 
 }
