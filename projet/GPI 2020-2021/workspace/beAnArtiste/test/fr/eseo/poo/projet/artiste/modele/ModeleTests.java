@@ -1,9 +1,19 @@
 package fr.eseo.poo.projet.artiste.modele;
 
-import static org.junit.Assert.*;
+import fr.eseo.poo.projet.artiste.modele.formes.*;
 
-import org.junit.Test;
 
 public class ModeleTests {
-
+	
+	public ModeleTests() {
+		CercleTest ct = new CercleTest();
+		EllipseTest et = new EllipseTest();
+		LigneTest lt = new LigneTest();
+		CoordonneesTest cot = new CoordonneesTest();
+	}
+	
+	public static void main(String args[]) {
+		new ModeleTests();
+	}
+	
 }

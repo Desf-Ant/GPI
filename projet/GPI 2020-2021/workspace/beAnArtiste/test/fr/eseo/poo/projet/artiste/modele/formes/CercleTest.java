@@ -5,6 +5,21 @@ import fr.eseo.poo.projet.artiste.modele.*;
 import org.junit.Test;
 
 public class CercleTest {
+	
+	public CercleTest() {
+		testConstructeurDefaut();
+		testConstructeurCoord();
+		testConstructeurCoordDouble();
+		testConstructeurDouble();
+		testConstructeurFull();
+		testPerimetre();
+		testAire();
+		testSetHauteur();
+		testSetHauteurNegatif();
+		testSetLargeurNegatig();
+		testSetLargeur();
+		testToString();
+	}
 
 	@Test
 	public void testConstructeurDefaut() {

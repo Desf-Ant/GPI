@@ -85,6 +85,7 @@ public class Ligne extends Forme {
 		this.largeur += deltaX;
 		this.hauteur += deltaY;
 	}
+	
 	@Override
 	public double getCadreMinX() {
 		double a = this.getC1().getAbscisse();

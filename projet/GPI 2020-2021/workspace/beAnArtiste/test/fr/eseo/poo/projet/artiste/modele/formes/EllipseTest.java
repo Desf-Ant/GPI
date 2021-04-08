@@ -7,6 +7,23 @@ import org.junit.Test;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class EllipseTest {
+	
+	public EllipseTest() {
+		testConstructeurDefault();
+		testConstructeurDouble();
+		testConstructeurDoubleNegatif();
+		testConstructeurCoordonnees();
+		testConstructeurFullNegatif();
+		testConstructeurFull();
+		testSetHauteurNegatif();
+		testSetHauteur();
+		testSetLargeurNegatif();
+		testSetHauteur();
+		testAire();
+		testPerimetre();
+		testToString();
+		testContient();
+	}
 
 	@Test
 	public void testConstructeurDefault() {
@@ -35,7 +52,12 @@ public class EllipseTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testConstructeurDoubleNegatif() {
-		Ellipse e = new Ellipse(-10,-10);
+		try {
+			Ellipse e = new Ellipse(-10,-10);
+		}
+		catch(IllegalArgumentException I) {
+			assertEquals(1,1,0.001);
+		}
 	}
 	
 	@Test
@@ -50,7 +72,12 @@ public class EllipseTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testConstructeurFullNegatif() {
-		Ellipse e = new Ellipse(new Coordonnees(),-10,-10);
+		try {
+			Ellipse e = new Ellipse(new Coordonnees(),-10,-10);
+		}
+		catch(IllegalArgumentException I) {
+			assertEquals(1,1,0.001);
+		}
 	}
 	
 	@Test 
@@ -70,14 +97,24 @@ public class EllipseTest {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testSetHauteurNegatif() {
-		Ellipse e = new Ellipse(new Coordonnees(),10,10);
-		e.setHauteur(-6);
+		try {
+			Ellipse e = new Ellipse(new Coordonnees(),10,10);
+			e.setHauteur(-6);
+		}
+		catch(IllegalArgumentException i) {
+			assertEquals(1,1,0.001);
+		}
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testSetLargeurNegatif() {
-		Ellipse e = new Ellipse(new Coordonnees(),10,10);
-		e.setLargeur(-6);
+		try {
+			Ellipse e = new Ellipse(new Coordonnees(),10,10);
+			e.setLargeur(-6);
+		}
+		catch(IllegalArgumentException i) {
+			assertEquals(1,1,0.001);
+		}
 	}
 	
 	@Test

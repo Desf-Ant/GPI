@@ -7,6 +7,35 @@ import org.junit.Test;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class LigneTest {
+	
+	public LigneTest() {
+		testNormalConstructeur();
+		testNormalConstructeurNegatif();
+		testSansCoordConstructeur();
+		testSansLHConstructeur();
+		testSansRienConstructeur();
+		testSetLargeur();
+		testSetHauteur();
+		testGetC1();
+		testGetC2();
+		testGetC2_2();
+		testSetPosition();
+		testSetC1();
+		testSetC2();
+		testSetC2_2();
+		testGetCadreMinX();
+		testGetCadreMinY();
+		testGetCadreMaxX();
+		testGetCadreMaxY();
+		testDeplacerVers();
+		testDeplacerDe();
+		testAire();
+		testPerimetre();
+		testToString();
+		testToString2();
+		testContient();
+		testContient2();
+	}
 
 	@Test
 	public void testNormalConstructeur() {

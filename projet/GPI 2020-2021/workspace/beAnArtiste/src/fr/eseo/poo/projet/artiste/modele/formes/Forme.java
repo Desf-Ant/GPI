@@ -66,10 +66,10 @@ public abstract class Forme {
 	public Coordonnees getCentre() {
 		double h = this.getHauteur();
 		double l = this.getLargeur();
-		Coordonnees c = this.getPosition();
+		Coordonnees c = new Coordonnees(this.getPosition());
 		c.deplacerDe(l/2, h/2);
 		
-		return new Coordonnees(c);
+		return c;
 	}
 	
 	public void deplacerDe(double deltaX, double deltaY) {

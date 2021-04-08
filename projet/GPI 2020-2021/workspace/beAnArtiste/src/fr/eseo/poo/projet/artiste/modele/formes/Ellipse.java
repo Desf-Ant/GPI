@@ -8,65 +8,45 @@ public class Ellipse extends Forme {
 	
 	protected double a; // le petit rayon
 	protected double b; // le grand rayon
-	public static final double EPSILON = 1;
+	public static final double EPSILON = 0;
 	
 	// Constructeurs
 	public Ellipse() {
 		super();
-		if (this.getHauteur()<this.getLargeur()) {
-			this.a = this.getHauteur()/2;
-			this.b = this.getLargeur()/2;
-		}
-		else {
-			this.a = this.getLargeur()/2;
-			this.b = this.getHauteur()/2;
-		}
+		
+		this.a = this.getLargeur()/2;
+		this.b = this.getHauteur()/2;
+
 	}
 	
 	public Ellipse(double l, double h) {
 		super(l,h);
 		
-		if (l<0 || h<0) 
+		if (l<=0 || h<=0) 
 			throw new IllegalArgumentException("You can't put negative input");
 		
-		if (l<h) {
-			this.a = h/2;
-			this.b = l/2;
-		}
-		else {
-			this.a = l/2;
-			this.b = h/2;
-		}
+		this.a = l/2;
+		this.b = h/2;
 	}
 	
 	public Ellipse(Coordonnees c) {
 		super(c);
-		if (this.getHauteur()<this.getLargeur()) {
-			this.a = this.getHauteur()/2;
-			this.b = this.getLargeur()/2;
-		}
-		else {
-			this.a = this.getLargeur()/2;
-			this.b = this.getHauteur()/2;
-		}
+		
+		this.a = this.getLargeur()/2;
+		this.b = this.getHauteur()/2;
+		
 	}
 	
 	public Ellipse(Coordonnees c, double l, double h) {
 		super(c,l,h);
 		
 		// On vérifie que ce ne sont pas des valeurs négatives
-		if (l<0 || h<0) 
+		if (l<=0 || h<=0) 
 			throw new IllegalArgumentException("You can't put negative input");
 		
-		// On cherche qui est le petit rayon et qui ne l'est pas
-		if (l<h) {
-			this.a = h/2;
-			this.b = l/2;
-		}
-		else {
-			this.a = l/2;
-			this.b = h/2;
-		}
+		this.a = l/2;
+		this.b = h/2;
+
 	}
 	
 	@Override
@@ -75,17 +55,8 @@ public class Ellipse extends Forme {
 		if (h<0) 
 			throw new IllegalArgumentException("You can't put negative input");
 		
+		this.b = h/2;
 		this.hauteur=h;
-		double l = this.getLargeur();
-		
-		if (l<h) {
-			this.a = h/2;
-			this.b = l/2;
-		}
-		else {
-			this.a = l/2;
-			this.b = h/2;
-		}
 	}
 	
 	@Override
@@ -95,16 +66,7 @@ public class Ellipse extends Forme {
 			throw new IllegalArgumentException("You can't put negative input");
 		
 		this.largeur=l;
-		double h = this.getHauteur();
-		
-		if (l<h) {
-			this.a = h/2;
-			this.b = l/2;
-		}
-		else {
-			this.a = l/2;
-			this.b = h/2;
-		}
+		this.a = l/2;
 	}
 	
 	@Override
@@ -126,11 +88,12 @@ public class Ellipse extends Forme {
 		double k = this.getCentre().getOrdonnee();
 				
 		double condition1 = Math.pow((x-h)/this.a, 2) + Math.pow((y-k)/this.b,2);
-		double condition2 = Math.pow((x-h)/this.b, 2) + Math.pow((y-k)/this.a,2);
-		
-		if (condition1 <= 1+EPSILON || condition2 <= 1+EPSILON)
+		//double condition2 = Math.pow((x-h)/this.b, 2) + Math.pow((y-k)/this.a,2);
+
+		if (condition1 <= 1+EPSILON)
 			return true;
 		return false;
+
 	}
 	
 	@Override
