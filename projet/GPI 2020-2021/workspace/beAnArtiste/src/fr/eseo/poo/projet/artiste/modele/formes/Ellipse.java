@@ -52,7 +52,7 @@ public class Ellipse extends Forme {
 	@Override
 	public void setHauteur(double h) {
 		
-		if (h<0) 
+		if (h<=0) 
 			throw new IllegalArgumentException("You can't put negative input");
 		
 		this.b = h/2;
@@ -62,7 +62,7 @@ public class Ellipse extends Forme {
 	@Override
 	public void setLargeur(double l) {
 		
-		if (l<0) 
+		if (l<=0) 
 			throw new IllegalArgumentException("You can't put negative input");
 		
 		this.largeur=l;
@@ -88,7 +88,6 @@ public class Ellipse extends Forme {
 		double k = this.getCentre().getOrdonnee();
 				
 		double condition1 = Math.pow((x-h)/this.a, 2) + Math.pow((y-k)/this.b,2);
-		//double condition2 = Math.pow((x-h)/this.b, 2) + Math.pow((y-k)/this.a,2);
 
 		if (condition1 <= 1+EPSILON)
 			return true;

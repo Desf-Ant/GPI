@@ -11,9 +11,13 @@ public class VueLigne extends VueForme {
 	
 	@Override
 	public void affiche(Graphics2D g2d) {
-		Ligne l = this.getForme();
-		int xD = (int)l.getC1();
-		int yD = (int)this.forme;
+		
+		Ligne l = (Ligne)this.getForme();	
+		int xD = (int)l.getC1().getAbscisse();
+		int yD = (int)l.getC1().getOrdonnee();
+		int xA = (int)l.getC2().getAbscisse();
+		int yA = (int)l.getC2().getOrdonnee();
+		
+		g2d.drawLine(xD, yD, xA, yA);
 	}
-
 }

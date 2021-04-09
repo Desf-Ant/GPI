@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class PanneauDessinTest {
 	
-	public void panneauDessinTest() {
+	public PanneauDessinTest() {
 		System.out.println("Effectue test");
 		testConstructeur();
 		testConstructeurParDefaut();
@@ -47,7 +47,6 @@ public class PanneauDessinTest {
 			@Override
 			public void run() {
 				PanneauDessinTest pdt = new PanneauDessinTest();
-				pdt.panneauDessinTest();
 			}
 				});
 		

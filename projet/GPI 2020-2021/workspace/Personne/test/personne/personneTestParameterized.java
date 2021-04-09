@@ -36,6 +36,7 @@ public class personneTestParameterized {
 		};
 		return Arrays.asList(data);
 	}
+	
 
 	@Test
 	public void testPersonne() {
