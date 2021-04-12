@@ -17,7 +17,6 @@ public class VueLigne extends VueForme {
 		int yD = (int)l.getC1().getOrdonnee();
 		int xA = (int)l.getC2().getAbscisse();
 		int yA = (int)l.getC2().getOrdonnee();
-		
 		g2d.drawLine(xD, yD, xA, yA);
 	}
 }

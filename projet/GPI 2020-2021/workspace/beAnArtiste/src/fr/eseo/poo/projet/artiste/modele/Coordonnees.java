@@ -6,7 +6,7 @@ import java.util.Locale;
 public class Coordonnees {
   private double x;
   private double y;
-  public static final double	ABSCISSE_PAR_DEFAUT = 0;
+  public static final double ABSCISSE_PAR_DEFAUT = 0;
   public static final double ORDONNEE_PAR_DEFAUT = 0;
 
   public Coordonnees (double x,double y){
@@ -86,6 +86,25 @@ public class Coordonnees {
     double yR = y2-this.getOrdonnee();
     
     return (yR/Math.abs(yR)) * Math.acos(xR/Math.sqrt(Math.pow(xR, 2)+Math.pow(yR, 2)));   
+  }
+  
+  @Override
+  public boolean equals(Object o) {
+	  if (o == this)
+		  return true;
+	  
+	  if (!(o instanceof Coordonnees)) {
+          return false;
+      }
+	  
+	  Coordonnees c = (Coordonnees) o;
+	  
+	  if (this.getAbscisse() != c.getAbscisse() || this.getOrdonnee() != c.getOrdonnee()) {
+		  return false;
+	  }
+	  
+	  return true;
+	  
   }
 
 }

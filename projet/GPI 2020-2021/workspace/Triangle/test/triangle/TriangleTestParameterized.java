@@ -74,8 +74,8 @@ public class TriangleTestParameterized {
 	 */
 	@Test
 	public void testgetType() {
-		Triangle triangle = new Triangle(a, b, c);
+		Triangle triangle = new Triangle(this.a, this.b, this.c);
 
-		assertEquals("Test du type du triangle", triangleAttendu, triangle.getType());
+		assertEquals("Test du type du triangle", this.triangleAttendu, triangle.getType());
 	}
 }
