@@ -7,35 +7,6 @@ import org.junit.Test;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class LigneTest {
-	
-	public LigneTest() {
-		testNormalConstructeur();
-		testNormalConstructeurNegatif();
-		testSansCoordConstructeur();
-		testSansLHConstructeur();
-		testSansRienConstructeur();
-		testSetLargeur();
-		testSetHauteur();
-		testGetC1();
-		testGetC2();
-		testGetC2_2();
-		testSetPosition();
-		testSetC1();
-		testSetC2();
-		testSetC2_2();
-		testGetCadreMinX();
-		testGetCadreMinY();
-		testGetCadreMaxX();
-		testGetCadreMaxY();
-		testDeplacerVers();
-		testDeplacerDe();
-		testAire();
-		testPerimetre();
-		testToString();
-		testToString2();
-		testContient();
-		testContient2();
-	}
 
 	@Test
 	public void testNormalConstructeur() {
@@ -322,12 +293,13 @@ public class LigneTest {
 		s = "[Ligne] c1 : ";
 		s += "(0,0 , 0,0)";
 		s += " c2 : ";
-		s += "(20,0 , 20,0)";
+		s += "(100,0 , 100,0)";
 		s += " longueur : ";
-		s += "28,28";
+		s += "141,42";
 		s += " angle : ";
 		s += "45,0";
-		s += "°";
+		s += "° ";
+		s += "couleur = R51,V51,B51" ;
 		
 		assertEquals(s,l.toString());
 		
@@ -346,7 +318,8 @@ public class LigneTest {
 		s += "28,28";
 		s += " angle : ";
 		s += "225,0";
-		s += "°";
+		s += "° ";
+		s += "couleur = R51,V51,B51" ;
 		
 		assertEquals(s,l.toString());
 	}

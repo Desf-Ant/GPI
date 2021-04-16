@@ -1,13 +1,15 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 import fr.eseo.poo.projet.artiste.modele.*;
 
-public class Ellipse extends Forme {
+public class Ellipse extends Forme implements Remplissable {
 	
 	protected double a; // le petit rayon
 	protected double b; // le grand rayon
+	protected boolean rempli;
 	public static final double EPSILON = 0;
 	
 	// Constructeurs
@@ -16,6 +18,7 @@ public class Ellipse extends Forme {
 		
 		this.a = this.getLargeur()/2;
 		this.b = this.getHauteur()/2;
+		this.rempli = false;
 
 	}
 	
@@ -27,6 +30,7 @@ public class Ellipse extends Forme {
 		
 		this.a = l/2;
 		this.b = h/2;
+		this.rempli = false;
 	}
 	
 	public Ellipse(Coordonnees c) {
@@ -34,7 +38,7 @@ public class Ellipse extends Forme {
 		
 		this.a = this.getLargeur()/2;
 		this.b = this.getHauteur()/2;
-		
+		this.rempli = false;
 	}
 	
 	public Ellipse(Coordonnees c, double l, double h) {
@@ -46,6 +50,7 @@ public class Ellipse extends Forme {
 		
 		this.a = l/2;
 		this.b = h/2;
+		this.rempli = false;
 
 	}
 	
@@ -105,8 +110,24 @@ public class Ellipse extends Forme {
 		String p = df.format(this.perimetre());
 		String aire = df.format(this.aire());
 		
+		int r = this.getCouleur().getRed();
+		int g = this.getCouleur().getGreen();
+		int b = this.getCouleur().getBlue();
+		String couleur = "R"+r+",G"+g+",B"+b;
 		
-		s += "[Ellipse] : pos ";
+		String formeRemplie = new String();
+		
+		if (this.estRempli()) {
+			formeRemplie = "-Rempli";
+		}
+
+		Locale langue = Locale.getDefault();
+		if (langue.getLanguage().equals(new Locale("fr").getLanguage())) {
+			couleur = couleur.replace('G', 'V');
+		}
+		
+		
+		s += "[Ellipse"+formeRemplie+"] : pos ";
 		s += this.getPosition().toString();
 		s += " dim ";
 		s += l;
@@ -116,8 +137,18 @@ public class Ellipse extends Forme {
 		s += p;
 		s += " aire : ";
 		s += aire;
+		s += " couleur = ";
+		s += couleur;
 		
 		return s;
+	}
+	
+	@Override
+	public boolean estRempli() {
+		return rempli;
+	}
+	public void setRempli(boolean r) {
+		this.rempli = r;
 	}
 	
 }

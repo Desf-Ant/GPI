@@ -1,14 +1,18 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
+import java.awt.Color;
 import fr.eseo.poo.projet.artiste.modele.*;
 
-public abstract class Forme {
+public abstract class Forme implements Coloriable{
 	public static final double LARGEUR_PAR_DEFAUT=100;
 	public static final double HAUTEUR_PAR_DEFAUT=100;
+	public static final Color COULEUR_PAR_DEFAUT = javax.swing.UIManager.getColor("Panel.foreground");
+	
 	
 	// Variable
 	protected double largeur;
 	protected double hauteur;
+	protected Color couleur;
 	private Coordonnees position;
 	
 	// Constructeur
@@ -16,6 +20,7 @@ public abstract class Forme {
 		this.position = c;
 		this.largeur = l;
 		this.hauteur = h;
+		this.couleur = COULEUR_PAR_DEFAUT;
 	}
 	public Forme(Coordonnees c) {
 		this(c,LARGEUR_PAR_DEFAUT,HAUTEUR_PAR_DEFAUT);
@@ -24,6 +29,7 @@ public abstract class Forme {
 		this.position = new Coordonnees();
 		this.largeur = l;
 		this.hauteur = h;
+		this.couleur = COULEUR_PAR_DEFAUT;
 	}
 	public Forme() {
 		this(new Coordonnees());
@@ -80,6 +86,14 @@ public abstract class Forme {
 	
 	public void deplacerVers(double newX,double newY) {
 		this.setPosition(new Coordonnees(newX,newY));
+	}
+	
+	public Color getCouleur() {
+		return couleur;
+	}
+	
+	public void setCouleur(Color c) {
+		this.couleur = c;
 	}
 	
 	public abstract double aire();

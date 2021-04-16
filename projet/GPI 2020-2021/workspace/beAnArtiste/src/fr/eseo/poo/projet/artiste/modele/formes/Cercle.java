@@ -1,6 +1,7 @@
 package fr.eseo.poo.projet.artiste.modele.formes;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 import fr.eseo.poo.projet.artiste.modele.*;
 
@@ -59,8 +60,24 @@ public class Cercle extends Ellipse{
 		String p = df.format(this.perimetre());
 		String aire = df.format(this.aire());
 		
+		int r = this.getCouleur().getRed();
+		int g = this.getCouleur().getGreen();
+		int b = this.getCouleur().getBlue();
+		String couleur = "R"+r+",G"+g+",B"+b;
 		
-		s += "[Cercle] : pos ";
+		String formeRemplie = new String();
+		
+		if (this.estRempli()) {
+			formeRemplie = "-Rempli";
+		}
+
+		Locale langue = Locale.getDefault();
+		if (langue.getLanguage().equals(new Locale("fr").getLanguage())) {
+			couleur = couleur.replace('G', 'V');
+		}
+		
+		
+		s += "[Cercle"+formeRemplie+"] : pos ";
 		s += this.getPosition().toString();
 		s += " dim ";
 		s += l;
@@ -70,6 +87,8 @@ public class Cercle extends Ellipse{
 		s += p;
 		s += " aire : ";
 		s += aire;
+		s += " couleur = ";
+		s += couleur;
 		
 		return s;
 	}

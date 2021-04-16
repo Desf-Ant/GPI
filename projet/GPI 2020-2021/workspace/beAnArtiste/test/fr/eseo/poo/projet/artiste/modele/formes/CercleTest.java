@@ -5,21 +5,7 @@ import fr.eseo.poo.projet.artiste.modele.*;
 import org.junit.Test;
 
 public class CercleTest {
-	
-	public CercleTest() {
-		testConstructeurDefaut();
-		testConstructeurCoord();
-		testConstructeurCoordDouble();
-		testConstructeurDouble();
-		testConstructeurFull();
-		testPerimetre();
-		testAire();
-		testSetHauteur();
-		testSetHauteurNegatif();
-		testSetLargeurNegatig();
-		testSetLargeur();
-		testToString();
-	}
+
 
 	@Test
 	public void testConstructeurDefaut() {
@@ -126,7 +112,29 @@ public class CercleTest {
 		s += " périmètre : ";
 		s += "31,42";
 		s += " aire : ";
-		s += "78,54";
+		s += "78,54 ";
+		s += "couleur = R51,V51,B51" ;
+		
+		assertEquals(s,c.toString());
+	}
+	
+	@Test
+	public void testToString2() {
+		Cercle c = new Cercle(new Coordonnees(5,5),10,10);
+		String s = new String();
+		c.setRempli(true);
+		
+		s += "[Cercle-Rempli] : pos ";
+		s += "(5,0 , 5,0)";
+		s += " dim ";
+		s += "10,0";
+		s += " x ";
+		s += "10,0";
+		s += " périmètre : ";
+		s += "31,42";
+		s += " aire : ";
+		s += "78,54 ";
+		s += "couleur = R51,V51,B51" ;
 		
 		assertEquals(s,c.toString());
 	}

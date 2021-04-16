@@ -2,10 +2,10 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 
 import java.text.DecimalFormat;
 import java.util.Locale;
-
+import java.awt.Color;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
-public class Ligne extends Forme {
+public class Ligne extends Forme{
 	
 	public static double LARGEUR_PAR_DEFAUT = 100;
 	public static double HAUTEUR_PAR_DEFAUT = 100;
@@ -170,12 +170,17 @@ public class Ligne extends Forme {
 		if (ang<0)
 			ang += 360;
 		String angle = df.format(ang);
+		int r = this.getCouleur().getRed();
+		int g = this.getCouleur().getGreen();
+		int b = this.getCouleur().getBlue();
+		String couleur = "R"+r+",G"+g+",B"+b;
 		
 		Locale langue = Locale.getDefault();
 		
 		if (langue.getLanguage().equals(new Locale("fr").getLanguage())) {
 			longueur = longueur.replace('.',',');
 			angle = angle.replace('.',',');
+			couleur = couleur.replace('G', 'V');
 		}
 		
 		s = "[Ligne] c1 : ";
@@ -186,7 +191,9 @@ public class Ligne extends Forme {
 		s += longueur;
 		s += " angle : ";
 		s += angle;
-		s += "°";
+		s += "° ";
+		s += "couleur = ";
+		s += couleur;
 		
 		return s;
 		

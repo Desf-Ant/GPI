@@ -85,6 +85,8 @@ public class Coordonnees {
     double xR = x2-this.getAbscisse();
     double yR = y2-this.getOrdonnee();
     
+    if (yR == 0)
+    	return 0;
     return (yR/Math.abs(yR)) * Math.acos(xR/Math.sqrt(Math.pow(xR, 2)+Math.pow(yR, 2)));   
   }
   

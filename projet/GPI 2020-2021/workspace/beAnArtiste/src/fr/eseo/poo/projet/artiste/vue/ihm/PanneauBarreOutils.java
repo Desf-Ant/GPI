@@ -12,6 +12,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
 	
 	private PanneauDessin panneauDessin;
 	private JButton buttonSupp;
+	private JButton buttonCouleur;
 	private ButtonGroup buttonGroup;
 	
 	private JToggleButton buttonOutilLigne;
@@ -31,10 +32,15 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
 	
 	public void initComponents() {
 		ActionEffacer actEff = new ActionEffacer(this.panneauDessin);
+		ActionChoisirCouleur actCouleur = new ActionChoisirCouleur(this.panneauDessin);
 		
 		// Creation du bouton Effacer
 		buttonSupp = new JButton(actEff);
 		buttonSupp.setName(ActionEffacer.NOM_ACTION);
+		
+		// Creation du bouton Choisir Couleur
+		buttonCouleur = new JButton(actCouleur);
+		buttonCouleur.setName(ActionChoisirCouleur.NOM_ACTION);
 		
 		// Creation du groupe de bouton des Outils
 		buttonGroup = new ButtonGroup();
@@ -66,6 +72,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
 		
 		this.add(this.panneauDessin,BorderLayout.CENTER);
 		this.add(buttonSupp,BorderLayout.EAST);
+		this.add(buttonCouleur,BorderLayout.EAST);
 		this.add(buttonOutilSelectionner,BorderLayout.EAST);
 		this.add(buttonOutilLigne,BorderLayout.EAST);
 		this.add(buttonOutilEllipse,BorderLayout.EAST);

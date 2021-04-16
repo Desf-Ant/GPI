@@ -4,7 +4,9 @@ import java.awt.*;
 import fr.eseo.poo.projet.artiste.vue.formes.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Color;
 import fr.eseo.poo.projet.artiste.controleur.outils.*;
+import fr.eseo.poo.projet.artiste.modele.formes.Forme;
 
 public class PanneauDessin extends javax.swing.JPanel{
 	public static final int LARGEUR_PAR_DEFAUT = 250;
@@ -13,11 +15,13 @@ public class PanneauDessin extends javax.swing.JPanel{
 	
 	private Outil outilCourant;
 	private final List<VueForme> vueFormes;
+	private Color couleurCourante;
 	
 	public PanneauDessin() {
 		Dimension d = new Dimension(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
 		this.setPreferredSize(d);
 		this.setBackground(COULEUR_FOND_PAR_DEFAUT);
+		this.couleurCourante = Forme.COULEUR_PAR_DEFAUT;
 		vueFormes = new ArrayList<>();
 	}
 	
@@ -25,6 +29,7 @@ public class PanneauDessin extends javax.swing.JPanel{
 		Dimension d = new Dimension(l,h);
 		this.setPreferredSize(d);
 		this.setBackground(c);
+		this.couleurCourante = Forme.COULEUR_PAR_DEFAUT;
 		vueFormes = new ArrayList<>();
 	}
 	
@@ -74,5 +79,13 @@ public class PanneauDessin extends javax.swing.JPanel{
 		this.addMouseListener(o);
 		this.addMouseMotionListener(o);
 		this.outilCourant = o;
+	}
+	
+	public Color getCouleurCourante() {
+		return this.couleurCourante;
+	}
+	
+	public void setCouleurCourante(Color c) {
+		this.couleurCourante = c;
 	}
 }

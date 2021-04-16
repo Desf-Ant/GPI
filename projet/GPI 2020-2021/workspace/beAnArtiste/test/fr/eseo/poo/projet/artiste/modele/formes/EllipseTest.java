@@ -7,23 +7,6 @@ import org.junit.Test;
 import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class EllipseTest {
-	
-	public EllipseTest() {
-		testConstructeurDefault();
-		testConstructeurDouble();
-		testConstructeurDoubleNegatif();
-		testConstructeurCoordonnees();
-		testConstructeurFullNegatif();
-		testConstructeurFull();
-		testSetHauteurNegatif();
-		testSetHauteur();
-		testSetLargeurNegatif();
-		testSetHauteur();
-		testAire();
-		testPerimetre();
-		testToString();
-		testContient();
-	}
 
 	@Test
 	public void testConstructeurDefault() {
@@ -52,12 +35,7 @@ public class EllipseTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testConstructeurDoubleNegatif() {
-		try {
-			Ellipse e = new Ellipse(-10,-10);
-		}
-		catch(IllegalArgumentException I) {
-			assertEquals(1,1,0.001);
-		}
+		Ellipse e = new Ellipse(-10,-10);
 	}
 	
 	@Test
@@ -72,12 +50,7 @@ public class EllipseTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testConstructeurFullNegatif() {
-		try {
-			Ellipse e = new Ellipse(new Coordonnees(),-10,-10);
-		}
-		catch(IllegalArgumentException I) {
-			assertEquals(1,1,0.001);
-		}
+		Ellipse e = new Ellipse(new Coordonnees(),-10,-10);
 	}
 	
 	@Test 
@@ -97,24 +70,14 @@ public class EllipseTest {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testSetHauteurNegatif() {
-		try {
-			Ellipse e = new Ellipse(new Coordonnees(),10,10);
-			e.setHauteur(-6);
-		}
-		catch(IllegalArgumentException i) {
-			assertEquals(1,1,0.001);
-		}
+		Ellipse e = new Ellipse(new Coordonnees(),10,10);
+		e.setHauteur(-6);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testSetLargeurNegatif() {
-		try {
-			Ellipse e = new Ellipse(new Coordonnees(),10,10);
-			e.setLargeur(-6);
-		}
-		catch(IllegalArgumentException i) {
-			assertEquals(1,1,0.001);
-		}
+		Ellipse e = new Ellipse(new Coordonnees(),10,10);
+		e.setLargeur(-6);
 	}
 	
 	@Test
@@ -169,7 +132,29 @@ public class EllipseTest {
 		s += " périmètre : ";
 		s += "66,82";
 		s += " aire : ";
-		s += "235,62";
+		s += "235,62 ";
+		s += "couleur = R51,V51,B51" ;
+		
+		assertEquals(s,e.toString());
+	}
+	
+	@Test
+	public void testToString2() {
+		String s = new String();
+		Ellipse e = new Ellipse(new Coordonnees(20,20),10,30);
+		e.setRempli(true);
+		
+		s += "[Ellipse-Rempli] : pos ";
+		s += "(20,0 , 20,0)";
+		s += " dim ";
+		s += "10,0";
+		s += " x ";
+		s += "30,0";
+		s += " périmètre : ";
+		s += "66,82";
+		s += " aire : ";
+		s += "235,62 ";
+		s += "couleur = R51,V51,B51" ;
 		
 		assertEquals(s,e.toString());
 	}
