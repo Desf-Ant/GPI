@@ -29,6 +29,7 @@ public class VueEllipseTest {
 		
 		Ellipse e = new Ellipse(new Coordonnees(100,100),400,200);
 		Ellipse e2 = new Ellipse(new Coordonnees(100,100),200,400);
+		e2.setRempli(true);
 		VueEllipse ve = new VueEllipse(e);
 		VueEllipse ve2 = new VueEllipse(e2);
 		p.ajouterVueForme(ve);

@@ -28,6 +28,7 @@ public class VueCercleTest {
 		
 		Cercle c = new Cercle(new Coordonnees(100,100),400);
 		Cercle c2 = new Cercle(new Coordonnees(100,100),200);
+		c2.setRempli(true);
 		VueCercle vc = new VueCercle(c);
 		VueCercle vc2 = new VueCercle(c2);
 		p.ajouterVueForme(vc);

@@ -26,6 +26,7 @@ public class OutilCercle extends OutilForme {
 			longueur = (int)Cercle.LARGEUR_PAR_DEFAUT;
 		Cercle c = new Cercle(this.getDebut(),largeur,longueur);
 		c.setCouleur(this.getPanneauDessin().getCouleurCourante());
+		c.setRempli(this.getPanneauDessin().getModeRemplissage());
 		System.out.println(c);
 		return new VueCercle(c);
 	}

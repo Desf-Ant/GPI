@@ -147,6 +147,7 @@ public class Ellipse extends Forme implements Remplissable {
 	public boolean estRempli() {
 		return rempli;
 	}
+	@Override
 	public void setRempli(boolean r) {
 		this.rempli = r;
 	}

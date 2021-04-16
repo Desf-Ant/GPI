@@ -16,12 +16,14 @@ public class PanneauDessin extends javax.swing.JPanel{
 	private Outil outilCourant;
 	private final List<VueForme> vueFormes;
 	private Color couleurCourante;
+	private boolean modeRemplissage;
 	
 	public PanneauDessin() {
 		Dimension d = new Dimension(LARGEUR_PAR_DEFAUT, HAUTEUR_PAR_DEFAUT);
 		this.setPreferredSize(d);
 		this.setBackground(COULEUR_FOND_PAR_DEFAUT);
 		this.couleurCourante = Forme.COULEUR_PAR_DEFAUT;
+		this.modeRemplissage = false;
 		vueFormes = new ArrayList<>();
 	}
 	
@@ -30,6 +32,7 @@ public class PanneauDessin extends javax.swing.JPanel{
 		this.setPreferredSize(d);
 		this.setBackground(c);
 		this.couleurCourante = Forme.COULEUR_PAR_DEFAUT;
+		this.modeRemplissage = false;
 		vueFormes = new ArrayList<>();
 	}
 	
@@ -87,5 +90,13 @@ public class PanneauDessin extends javax.swing.JPanel{
 	
 	public void setCouleurCourante(Color c) {
 		this.couleurCourante = c;
+	}
+	
+	public boolean getModeRemplissage() {
+		return this.modeRemplissage;
+	}
+	
+	public void setModeRemplissage(boolean m) {
+		this.modeRemplissage = m;
 	}
 }

@@ -23,6 +23,7 @@ public class OutilEllipse extends OutilForme {
 		double longueur = this.getFin().getOrdonnee() - this.getDebut().getOrdonnee();
 		Ellipse e = new Ellipse(this.getDebut(),largeur,longueur);
 		e.setCouleur(this.getPanneauDessin().getCouleurCourante());
+		e.setRempli(this.getPanneauDessin().getModeRemplissage());
 		System.out.println(e);
 		return new VueEllipse(e);
 	}

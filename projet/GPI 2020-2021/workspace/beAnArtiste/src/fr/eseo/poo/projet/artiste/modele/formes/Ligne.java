@@ -69,6 +69,10 @@ public class Ligne extends Forme{
 	public Coordonnees getC2() {
 		Coordonnees c = new Coordonnees(this.getPosition());
 		c.deplacerDe(this.largeur, this.hauteur);
+		if (Math.abs(c.getAbscisse())< 0.0001)
+			c.deplacerVers(0, c.getOrdonnee());
+		if (Math.abs(c.getOrdonnee())< 0.0001)
+			c.deplacerVers(c.getAbscisse(), 0);
 		return c;
 	}
 	
@@ -198,5 +202,6 @@ public class Ligne extends Forme{
 		return s;
 		
 	}
+	
 	
 }

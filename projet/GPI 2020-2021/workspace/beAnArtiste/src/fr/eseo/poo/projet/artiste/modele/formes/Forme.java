@@ -95,6 +95,7 @@ public abstract class Forme implements Coloriable{
 	public void setCouleur(Color c) {
 		this.couleur = c;
 	}
+
 	
 	public abstract double aire();
 	

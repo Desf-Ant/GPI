@@ -15,16 +15,16 @@ public class VueLigne extends VueForme {
 	
 	@Override
 	public void affiche(Graphics2D g2d) {
+		Ligne l = (Ligne)this.getForme();
 		
 		// Gestion de la couleur
 		couleurSave = g2d.getColor();
-		couleurCourante = this.getForme().getCouleur();
+		couleurCourante = l.getCouleur();
 		g2d.setColor(couleurCourante);
 		couleurCourante = couleurSave;
 		
 		
-		// Dessin de la ligne
-		Ligne l = (Ligne)this.getForme();	
+		// Dessin de la ligne	
 		int xD = (int)l.getC1().getAbscisse();
 		int yD = (int)l.getC1().getOrdonnee();
 		int xA = (int)l.getC2().getAbscisse();

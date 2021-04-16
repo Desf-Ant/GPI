@@ -1,6 +1,7 @@
 package fr.eseo.poo.projet.artiste.vue.ihm;
 
 import fr.eseo.poo.projet.artiste.controleur.actions.*;
+import javax.swing.JCheckBox;
 import javax.swing.ButtonGroup;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
@@ -13,6 +14,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
 	private PanneauDessin panneauDessin;
 	private JButton buttonSupp;
 	private JButton buttonCouleur;
+	private JCheckBox buttonRemplissage;
 	private ButtonGroup buttonGroup;
 	
 	private JToggleButton buttonOutilLigne;
@@ -33,6 +35,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
 	public void initComponents() {
 		ActionEffacer actEff = new ActionEffacer(this.panneauDessin);
 		ActionChoisirCouleur actCouleur = new ActionChoisirCouleur(this.panneauDessin);
+		ActionChoisirRemplissage actRemplissage = new ActionChoisirRemplissage(this.panneauDessin);
 		
 		// Creation du bouton Effacer
 		buttonSupp = new JButton(actEff);
@@ -41,6 +44,10 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
 		// Creation du bouton Choisir Couleur
 		buttonCouleur = new JButton(actCouleur);
 		buttonCouleur.setName(ActionChoisirCouleur.NOM_ACTION);
+		
+		// Creation du bouton Choisir Remplissage
+		buttonRemplissage = new JCheckBox(actRemplissage);
+		buttonRemplissage.setName(ActionChoisirRemplissage.NOM_ACTION);
 		
 		// Creation du groupe de bouton des Outils
 		buttonGroup = new ButtonGroup();
@@ -73,6 +80,7 @@ public class PanneauBarreOutils extends javax.swing.JPanel {
 		this.add(this.panneauDessin,BorderLayout.CENTER);
 		this.add(buttonSupp,BorderLayout.EAST);
 		this.add(buttonCouleur,BorderLayout.EAST);
+		this.add(buttonRemplissage,BorderLayout.EAST);
 		this.add(buttonOutilSelectionner,BorderLayout.EAST);
 		this.add(buttonOutilLigne,BorderLayout.EAST);
 		this.add(buttonOutilEllipse,BorderLayout.EAST);
