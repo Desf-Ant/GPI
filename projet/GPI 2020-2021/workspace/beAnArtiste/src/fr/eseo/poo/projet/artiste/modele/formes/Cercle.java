@@ -20,6 +20,7 @@ public class Cercle extends Ellipse{
 	}
 	public Cercle(Coordonnees c ,double l, double h) {
 		super(c,l,h);
+			
 	}
 	
 	@Override

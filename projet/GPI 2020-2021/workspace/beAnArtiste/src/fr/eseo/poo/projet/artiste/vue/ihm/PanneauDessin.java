@@ -50,14 +50,20 @@ public class PanneauDessin extends javax.swing.JPanel{
 	}
 	
 	private void dissocierOutil() {
-		this.outilCourant = null;
+		if (this.getOutilCourant() != null) {
+			this.removeMouseListener(this.getOutilCourant());
+			this.removeMouseMotionListener(this.getOutilCourant());
+			this.outilCourant.setPanneauDessin(null);
+			this.outilCourant = null;
+		}
 	}
 	
 	public void associerOutil(Outil o) {
 		this.dissocierOutil();
-		this.setOutilCourant(o);
-		this.outilCourant.setPanneauDessin(this);
-		this.addMouseListener(o);
+		if (o != null) {
+			this.setOutilCourant(o);
+			this.outilCourant.setPanneauDessin(this);
+		}
 	}
 	
 	public Outil getOutilCourant() {
@@ -65,6 +71,8 @@ public class PanneauDessin extends javax.swing.JPanel{
 	}
 	
 	private void setOutilCourant(Outil o) {
+		this.addMouseListener(o);
+		this.addMouseMotionListener(o);
 		this.outilCourant = o;
 	}
 }

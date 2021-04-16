@@ -87,9 +87,9 @@ public class Ellipse extends Forme {
 		double h = this.getCentre().getAbscisse();
 		double k = this.getCentre().getOrdonnee();
 				
-		double condition1 = Math.pow((x-h)/this.a, 2) + Math.pow((y-k)/this.b,2);
+		double condition = Math.pow((x-h)/this.a, 2) + Math.pow((y-k)/this.b,2);
 
-		if (condition1 <= 1+EPSILON)
+		if (condition<= 1+EPSILON)
 			return true;
 		return false;
 

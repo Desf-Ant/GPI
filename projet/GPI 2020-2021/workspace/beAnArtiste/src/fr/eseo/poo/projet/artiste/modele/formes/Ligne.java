@@ -7,8 +7,8 @@ import fr.eseo.poo.projet.artiste.modele.Coordonnees;
 
 public class Ligne extends Forme {
 	
-	public static double LARGEUR_PAR_DEFAUT = 20;
-	public static double HAUTEUR_PAR_DEFAUT = 20;
+	public static double LARGEUR_PAR_DEFAUT = 100;
+	public static double HAUTEUR_PAR_DEFAUT = 100;
 	public static final double EPSILON = 0.1;
 	
 	private Coordonnees position;
@@ -28,11 +28,11 @@ public class Ligne extends Forme {
 	}
 	
 	public Ligne(Coordonnees c) {
-		this(c,LARGEUR_PAR_DEFAUT,HAUTEUR_PAR_DEFAUT);
+		this(c,Ligne.LARGEUR_PAR_DEFAUT,Ligne.HAUTEUR_PAR_DEFAUT);
 	}
 	
 	public Ligne() {
-		this(new Coordonnees(),LARGEUR_PAR_DEFAUT,HAUTEUR_PAR_DEFAUT);
+		this(new Coordonnees(),Ligne.LARGEUR_PAR_DEFAUT,Ligne.HAUTEUR_PAR_DEFAUT);
 	}
 	
 	

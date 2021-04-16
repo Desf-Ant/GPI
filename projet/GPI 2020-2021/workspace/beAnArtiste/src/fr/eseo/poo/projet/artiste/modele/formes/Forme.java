@@ -3,8 +3,8 @@ package fr.eseo.poo.projet.artiste.modele.formes;
 import fr.eseo.poo.projet.artiste.modele.*;
 
 public abstract class Forme {
-	public static final double LARGEUR_PAR_DEFAUT=20;
-	public static final double HAUTEUR_PAR_DEFAUT=20;
+	public static final double LARGEUR_PAR_DEFAUT=100;
+	public static final double HAUTEUR_PAR_DEFAUT=100;
 	
 	// Variable
 	protected double largeur;

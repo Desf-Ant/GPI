@@ -34,10 +34,12 @@ public abstract class OutilForme extends Outil{
 	
 	@Override
 	public void mouseClicked(MouseEvent event) {
-		int x = event.getX()+(int)Ligne.LARGEUR_PAR_DEFAUT;
-		int y = event.getY()+(int)Ligne.HAUTEUR_PAR_DEFAUT;
-		this.setFin(new Coordonnees(x,y));
-		this.getPanneauDessin().ajouterVueForme(this.creerVueForme());
+		if (event.getClickCount() == 2) {
+			int x = event.getX()+(int)Ligne.LARGEUR_PAR_DEFAUT;
+			int y = event.getY()+(int)Ligne.HAUTEUR_PAR_DEFAUT;
+			this.setFin(new Coordonnees(x,y));
+			this.getPanneauDessin().ajouterVueForme(this.creerVueForme());
+		}
 	}
 	
 	protected abstract VueForme creerVueForme();
